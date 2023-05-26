@@ -13,38 +13,38 @@ export const getMovieList = async () => {
   }
 }
 
-export const searchMovie = async(searchText) => {
+// export const searchMovie = async(searchText) => {
+//   try {
+//     return await axios.get(
+//       `https://api.themoviedb.org/3/search/movie?query=${searchText}}&api_key=${KEY}`);
+//   } catch (err) {
+//     throw new Error(err.message);
+//   }
+// }
+
+export const searchMovieInfo = async (id) => {
   try {
     return await axios.get(
-      `https://api.themoviedb.org/3/search/movie?query=${searchText}}&api_key=${KEY}`);
+      `https://api.themoviedb.org/3/movie/${id}?api_key=${KEY}`);
   } catch (err) {
     throw new Error(err.message);
   }
 }
 
-export const searchMovieInfo = async (movieId) => {
+export const searchMovieActor = async (id) => {
   try {
     return await axios.get(
-      `https://api.themoviedb.org/3/movie/${movieId}/reviews?api_key=${KEY}`);
+      `https://api.themoviedb.org/3/movie/${id}/credits?&api_key=${KEY}`);
   } catch (err) {
     throw new Error(err.message);
   }
 }
 
-export const searchMovieActor = async (movieId) => {
-  try {
-    return await axios.get(
-      `https://api.themoviedb.org/3/movie/${movieId}/credits?&api_key=${KEY}`);
-  } catch (err) {
-    throw new Error(err.message);
-  }
-}
-
-export const searchMovieReview = async (movieId) => {
-  try {
-    return await axios.get(
-      `https://api.themoviedb.org/3/movie/${movieId}/reviews?&api_key=${KEY}`);
-    } catch (err) {
-  throw new Error(err.message);
-  }
-}
+// export const searchMovieReview = async (id) => {
+//   try {
+//     return await axios.get(
+//       `https://api.themoviedb.org/3/movie/${id}/reviews?&api_key=${KEY}`);
+//     } catch (err) {
+//   throw new Error(err.message);
+//   }
+// }

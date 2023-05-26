@@ -1,60 +1,42 @@
 
+import { getMovieList } from "components/API/APIMovieList";
 import React, { useEffect, useState } from "react";
+// import { NavLink } from "react-router-dom"
+
 // import MovieList from '../MovieList/MovieList'
-import { getMovieList } from '../API/APIMovieList'
+
 
 const Home = () => {
     const [data, setData] = useState([])
+
     
     useEffect(() => {
         (async () => {
             try {
                 const { data } = await getMovieList();
-                setData(data.results);
-                console.log(data)
+                setData(data.results)
             } catch (err) {
                 throw new Error(err.message)
             }
         })();
   }, []);
-
     return (
         <>
             <div>
                 <h4>Traiding today</h4>
-                <ul>
-                    {data && data.map(movie => {
+                    <ul>
+                        {data && data.map(movie => {
                         return (
-                           
-                                <li key={movie.id}>{movie.title}</li>
-                )
-                    })}
-                </ul>
+                            <li key={movie.id}>
+                                <a href={`/goit-react-hw-05-movies/movies/${movie.id}`}>{movie.title}</a>
+                            </li>
+                        )
+                        })}
+                    </ul>
             </div>
         </>
-            
-
     )
 }
-
-//   return (
-//     <Container>
-//       <h1>Trending today</h1>
-//       <List>
-//         {trendingMovies &&
-//           trendingMovies.map(movie => {
-//             return (
-//               <ListItem key={movie.id}>
-//                 <StyledLink to={`/movies/${movie.id}`}>
-//                   {movie.title}
-//                 </StyledLink>
-//               </ListItem>
-//             );
-//           })}
-//       </List>
-//     </Container>
-//   );
-// };
 
 export default Home
 

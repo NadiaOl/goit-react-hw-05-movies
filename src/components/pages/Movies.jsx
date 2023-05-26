@@ -1,15 +1,12 @@
 
-// import React from "react";
-// import { Link } from "react-router-dom";
+// import React, { useEffect, useState } from "react";
+// import { searchMovieInfo } from '../API/APIMovieList'
+// import { NavLink } from "react-router-dom";
 
-// const Movies = () => {
-    // return (
-    //     getMovieList()
-    //     .then(response => response.json())
-    //     .then(response => console.log(response.results))
-    //     .catch(err => console.error(err)),
-    // <Link to={Movies.id}>Movies</Link>)
-// }
+const Movies = () => {
+  
+  
+}
 
 
-// export default Movies
+export default Movies
