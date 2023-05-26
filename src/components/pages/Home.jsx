@@ -1,6 +1,6 @@
 
 import React, { useEffect, useState } from "react";
-import MovieList from '../MovieList/MovieList'
+// import MovieList from '../MovieList/MovieList'
 import { getMovieList } from '../API/APIMovieList'
 
 const Home = () => {
