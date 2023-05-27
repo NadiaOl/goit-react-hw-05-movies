@@ -1,6 +1,7 @@
 
 import { getMovieList } from "components/API/APIMovieList";
 import React, { useEffect, useState } from "react";
+import css from './Page.module.css'
 // import { NavLink } from "react-router-dom"
 
 // import MovieList from '../MovieList/MovieList'
@@ -22,13 +23,13 @@ const Home = () => {
   }, []);
     return (
         <>
-            <div>
-                <h4>Traiding today</h4>
+            <div className={css.homeConteiner}>
+                <h4 className={css.homeTitle}>Traiding today</h4>
                     <ul>
                         {data && data.map(movie => {
                         return (
-                            <li key={movie.id}>
-                                <a href={`/goit-react-hw-05-movies/movies/${movie.id}`}>{movie.title}</a>
+                            <li className={css.homeList} key={movie.id}>
+                                <a className={css.homeLink} href={`/goit-react-hw-05-movies/movies/${movie.id}`}>{movie.title}</a>
                             </li>
                         )
                         })}

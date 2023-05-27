@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import {searchMovieInfo } from '../API/APIMovieList'
 import { NavLink, Outlet, useParams } from "react-router-dom";
+import css from "./Page.module.css"
 
 const MovieDetails = () => {
 
@@ -19,33 +20,33 @@ const MovieDetails = () => {
     }, [movieId]);
 
     return (
-        <div>
-            <NavLink to={`/`}>Go back</NavLink>
+        <div className={css.infoConteiner}>
+            <NavLink className={css.linkBack} to={`/`}>Go back</NavLink>
             {movie && (
-                <div>
-                    <div>
+                <div className={css.commomDiv}>
+                    <div className={css.infoDiv}>
                         <div>
-                            <img src={`https://image.tmdb.org/t/p/original${movie.poster_path}`} alt={movie.title} width="350"/>
+                            <img className={css.moviePoster} src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.title} width="350"/>
                         </div>
-                        <div>
-                            <h3>{movie.title}</h3>
+                        <div className={css.aboutDiv}>
+                            <h2 className={css.movieTitle}>{movie.title}</h2>
                             <p>{`Use Score: ${movie.vote_average}`}</p>
-                            <h4>Overview</h4>
+                            <h3>Overview</h3>
                             <p>{movie.overview}</p>
-                            <h5>Genres</h5>
+                            <h3>Genres</h3>
                             <ul>{movie.genres.map(genre => {
-                                return <li key={genre.id}>{genre.name}</li>})}
+                                return <li  key={genre.id}>{genre.name}</li>})}
                             </ul>
                         </div>
                     </div>
-                    <div>
+                    <div className={css.additionalInfoDiv}>
                         <h3>Additional information</h3>
                         <ul>
                             <li>
-                                <NavLink to={`/movies/${movie.id}/cast`}>Cast</NavLink>
+                                <NavLink className={css.linkAddInfo} to={`/movies/${movie.id}/cast`}>Cast</NavLink>
                             </li>
                             <li>
-                                <NavLink to={`/movies/${movie.id}/reviews`}>Reviews</NavLink>
+                                <NavLink className={css.linkAddInfo} to={`/movies/${movie.id}/reviews`}>Reviews</NavLink>
                             </li>
                         </ul>
                     </div>

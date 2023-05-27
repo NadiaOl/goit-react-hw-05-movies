@@ -13,14 +13,14 @@ export const getMovieList = async () => {
   }
 }
 
-// export const searchMovie = async(searchText) => {
-//   try {
-//     return await axios.get(
-//       `https://api.themoviedb.org/3/search/movie?query=${searchText}}&api_key=${KEY}`);
-//   } catch (err) {
-//     throw new Error(err.message);
-//   }
-// }
+export const searchMovie = async(searchText) => {
+  try {
+    return await axios.get(
+      `https://api.themoviedb.org/3/search/movie?query=${searchText}}&api_key=${KEY}`);
+  } catch (err) {
+    throw new Error(err.message);
+  }
+}
 
 export const searchMovieInfo = async (id) => {
   try {
@@ -40,11 +40,11 @@ export const searchMovieActor = async (id) => {
   }
 }
 
-// export const searchMovieReview = async (id) => {
-//   try {
-//     return await axios.get(
-//       `https://api.themoviedb.org/3/movie/${id}/reviews?&api_key=${KEY}`);
-//     } catch (err) {
-//   throw new Error(err.message);
-//   }
-// }
+export const searchMovieReview = async (id) => {
+  try {
+    return await axios.get(
+      `https://api.themoviedb.org/3/movie/${id}/reviews?&api_key=${KEY}`);
+    } catch (err) {
+  throw new Error(err.message);
+  }
+}

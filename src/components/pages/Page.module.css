@@ -1,0 +1,119 @@
+.homeConteiner {
+width: 1280px;
+padding: 0 30px;
+}
+.homeTitle {
+    margin-bottom: 30px;
+    font-size: 36px;
+    text-shadow: 2px 2px 5px darkgray ;
+}
+
+.homeLink {
+    font-size: 20px;
+    text-decoration: none;
+    color: black;
+}
+
+.form {
+    padding: 0 30px 30px 30px;
+    display: flex;
+    border-radius: 5px;
+    box-shadow: 0 10px 10px -5px rgba(0, 0, 0, 0.3)
+}
+.buttonSearch {
+    display: inline-block;
+    width:80px;
+    height: 48px;
+    border: 1px solid rgb(101, 233, 101);
+    background-color: lightgreen;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+.inputSearch {
+    width: 300px;
+    font-size: 20px;
+    border: 1px solid rgb(101, 233, 101);
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    padding-left: 4px;
+    padding-right: 4px;
+}
+
+.infoConteiner {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 0 30px;
+}
+
+.linkBack {
+    text-decoration: none;
+    width: 100px;
+    height: 30px;
+    border: 1px solid rgb(101, 233, 101);
+    border-radius: 3px;
+    background-color: lightgreen;
+    padding: 0 20px;
+    color: black;
+    box-shadow: 3px 0px 10px 1px rgb(0 0 0 / 30%);
+}
+
+.commomDiv {
+    display: flex;
+    flex-direction: column;
+}
+
+.infoDiv {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    box-shadow: 3px 0px 10px 1px rgb(0 0 0 / 30%);
+    margin-bottom: 30px;
+}
+
+.moviePoster {
+border-radius: 5px;
+box-shadow: 3px 0px 10px 1px rgb(0 0 0 / 30%);
+}
+
+.movieTitle {
+    font-size: 36px;
+    font-weight: bold;
+}
+
+.additionalInfoDiv {
+    padding-bottom: 14px;
+}
+
+.linkAddInfo {
+font-size: 20px;
+text-decoration: none;
+color: black;
+}
+
+.linkAddInfo:hover, .linkAddInfo:focus{
+    color: lightgreen;
+}
+
+.actorsList {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    list-style: none;
+
+}
+.actorsItem {
+    width: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between
+}
+
+.actorsPhoto {
+    border-radius: 3px;
+    margin-bottom: 10px;
+}
+.actorsName {
+    font-weight: bold;
+}
