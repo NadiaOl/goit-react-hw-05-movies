@@ -14,6 +14,10 @@ padding: 0 30px;
     color: black;
 }
 
+.homeLink:hover, .homeLink:focus{
+    color: lightgreen;
+}
+
 .form {
     padding: 0 30px 30px 30px;
     display: flex;
@@ -67,6 +71,7 @@ padding: 0 30px;
 .infoDiv {
     display: flex;
     flex-direction: row;
+    padding: 20px;
     gap: 30px;
     box-shadow: 3px 0px 10px 1px rgb(0 0 0 / 30%);
     margin-bottom: 30px;
@@ -104,16 +109,27 @@ color: black;
 
 }
 .actorsItem {
-    width: 100px;
+    width: 150px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between
+    justify-content: space-between;
+    border-radius: 5px;
+    box-shadow: 3px 0px 10px 1px rgb(0 0 0 / 30%);
+    padding: 10px;
 }
 
 .actorsPhoto {
     border-radius: 3px;
-    margin-bottom: 10px;
+    margin: 0 auto 10px;
 }
 .actorsName {
     font-weight: bold;
+}
+.reviewList {
+    box-shadow: 3px 0px 10px 1px rgb(0 0 0 / 30%);
+    padding: 20px;
+}
+.reviewList > li {
+    list-style: none;
+    margin-bottom: 30px;
 }

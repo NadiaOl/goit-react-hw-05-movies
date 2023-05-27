@@ -1,6 +1,7 @@
 import { searchMovieReview } from "components/API/APIMovieList";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import css from "./Page.module.css"
 
 const Reviews = () => {
     const { movieId } = useParams();
@@ -19,7 +20,7 @@ const Reviews = () => {
     }, [movieId]);
 
 return (
-    <ul>
+    <ul className={css.reviewList}>
         {reviews
         ? (reviews.map(review => {return <li key={review.id}>
             <h5>{review.author}</h5>
