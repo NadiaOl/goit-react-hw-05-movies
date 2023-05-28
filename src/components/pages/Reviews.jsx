@@ -30,9 +30,5 @@ return (
         }
     </ul>)
 }
-    
-
-
-
 
 export default Reviews
