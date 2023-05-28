@@ -1,7 +1,12 @@
+p {
+    margin: 0px;
+}
+
 .homeConteiner {
 width: 1280px;
 padding: 0 30px;
 }
+
 .homeTitle {
     margin-bottom: 30px;
     font-size: 36px;
@@ -82,6 +87,9 @@ border-radius: 5px;
 box-shadow: 3px 0px 10px 1px rgb(0 0 0 / 30%);
 }
 
+.aboutDiv > h3 {
+    margin-top: 20px;
+}
 .movieTitle {
     font-size: 36px;
     font-weight: bold;

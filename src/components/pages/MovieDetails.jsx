@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import {searchMovieInfo } from '../API/APIMovieList'
 import { NavLink, Outlet, useParams } from "react-router-dom";
 import css from "./Page.module.css"
+import PropTypes from "prop-types";
 
 const MovieDetails = () => {
 
@@ -55,5 +56,21 @@ const MovieDetails = () => {
         </div>)
 }
 
+MovieDetails.propTypes = {
+    data: PropTypes.arrayOf(
+        PropTypes.shape({
+            id: PropTypes.number.isRequired,
+            poster_path: PropTypes.string.isRequired,
+            vote_average: PropTypes.number.isRequired,
+            overview: PropTypes.string.isRequired,
+            genre: PropTypes.arrayOf(
+                PropTypes.shape({
+                    id: PropTypes.number.isRequired,
+                    name: PropTypes.string.isRequired,
+                })
+            )
+        })
+    ),
+}
 
 export default MovieDetails

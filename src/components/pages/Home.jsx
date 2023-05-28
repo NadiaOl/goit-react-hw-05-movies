@@ -1,15 +1,11 @@
-
 import { getMovieList } from "components/API/APIMovieList";
 import React, { useEffect, useState } from "react";
 import css from './Page.module.css'
-// import { NavLink } from "react-router-dom"
-
-// import MovieList from '../MovieList/MovieList'
+import PropTypes from "prop-types";
 
 
 const Home = () => {
     const [data, setData] = useState([])
-
     
     useEffect(() => {
         (async () => {
@@ -20,23 +16,32 @@ const Home = () => {
                 throw new Error(err.message)
             }
         })();
-  }, []);
+    }, []);
+
     return (
         <>
             <div className={css.homeConteiner}>
                 <h4 className={css.homeTitle}>Traiding today</h4>
-                    <ul>
-                        {data && data.map(movie => {
-                        return (
-                            <li className={css.homeList} key={movie.id}>
-                                <a className={css.homeLink} href={`/goit-react-hw-05-movies/movies/${movie.id}`}>{movie.title}</a>
-                            </li>
-                        )
-                        })}
-                    </ul>
+                <ul>
+                    {data && data.map(movie => {
+                    return (
+                    <li className={css.homeList} key={movie.id}>
+                            <a className={css.homeLink} href={`/goit-react-hw-05-movies/movies/${movie.id}`}>{movie.title}</a>
+                    </li>
+                    )
+                    })}
+                </ul>
             </div>
         </>
     )
+}
+
+Home.propTypes = {
+    data: PropTypes.arrayOf(
+        PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    title: PropTypes.string.isRequired,
+})),
 }
 
 export default Home
