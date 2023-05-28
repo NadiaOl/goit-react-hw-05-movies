@@ -3,6 +3,7 @@ import {searchMovieInfo } from '../API/APIMovieList'
 import { NavLink, Outlet, useParams } from "react-router-dom";
 import css from "./Page.module.css"
 import PropTypes from "prop-types";
+import { Suspense } from "react";
 
 const MovieDetails = () => {
 
@@ -51,7 +52,9 @@ const MovieDetails = () => {
                             </li>
                         </ul>
                     </div>
-                    <Outlet/>
+                    <Suspense fallback={<div>Loading...</div>}>
+                        <Outlet/>
+                    </Suspense>
                 </div>)}
         </div>)
 }
