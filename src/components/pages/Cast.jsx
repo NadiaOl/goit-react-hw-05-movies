@@ -1,6 +1,6 @@
 import { searchMovieActor } from "components/API/APIMovieList";
 import { useEffect, useState } from "react";
-import { useLocation, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import css from "./Page.module.css";
 import PropTypes from "prop-types";
 
