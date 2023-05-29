@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import {searchMovieInfo } from '../API/APIMovieList'
-import { NavLink, Outlet, useParams } from "react-router-dom";
+import { Link, Outlet, useLocation, useParams } from "react-router-dom";
 import css from "./Page.module.css"
 import PropTypes from "prop-types";
 import { Suspense } from "react";
@@ -9,6 +9,12 @@ const MovieDetails = () => {
 
     const { movieId } = useParams();
     const [movie, setMovie] = useState(null);
+    const location = useLocation()
+    const back = location.state ?? '/'
+
+    // console.log('location.state: ', location.state)
+    // console.log('location.state.from: ', location.state.from)
+
 
     useEffect(() => {
         (async () => {
@@ -23,7 +29,7 @@ const MovieDetails = () => {
 
     return (
         <div className={css.infoConteiner}>
-            <NavLink className={css.linkBack} to={`/`}>Go back</NavLink>
+            <Link className={css.linkBack} to={back}>Go back</Link>
             {movie && (
                 <div className={css.commomDiv}>
                     <div className={css.infoDiv}>
@@ -45,10 +51,12 @@ const MovieDetails = () => {
                         <h3>Additional information</h3>
                         <ul>
                             <li>
-                                <NavLink className={css.linkAddInfo} to={`/movies/${movie.id}/cast`}>Cast</NavLink>
+                                <Link className={css.linkAddInfo} to={`/movies/${movie.id}/cast`}
+                                state={location}>Cast</Link>
                             </li>
                             <li>
-                                <NavLink className={css.linkAddInfo} to={`/movies/${movie.id}/reviews`}>Reviews</NavLink>
+                                <Link className={css.linkAddInfo} to={`/movies/${movie.id}/reviews`} 
+                                state={location}>Reviews</Link>
                             </li>
                         </ul>
                     </div>

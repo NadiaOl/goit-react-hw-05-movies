@@ -2,10 +2,12 @@ import { getMovieList } from "components/API/APIMovieList";
 import React, { useEffect, useState } from "react";
 import css from './Page.module.css'
 import PropTypes from "prop-types";
+import { Link, useLocation } from "react-router-dom";
 
 
 const Home = () => {
     const [data, setData] = useState([])
+    const location = useLocation()
     
     useEffect(() => {
         (async () => {
@@ -26,7 +28,7 @@ const Home = () => {
                     {data && data.map(movie => {
                     return (
                     <li className={css.homeList} key={movie.id}>
-                            <a className={css.homeLink} href={`/goit-react-hw-05-movies/movies/${movie.id}`}>{movie.title}</a>
+                            <Link className={css.homeLink} to={`/movies/${movie.id}`} state={location}>{movie.title}</Link>
                     </li>
                     )
                     })}

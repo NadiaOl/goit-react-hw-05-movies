@@ -1,6 +1,6 @@
 import { searchMovieActor } from "components/API/APIMovieList";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 import css from "./Page.module.css";
 import PropTypes from "prop-types";
 
@@ -8,6 +8,7 @@ import PropTypes from "prop-types";
 const Cast = () => {
     const { movieId } = useParams();
     const [actors, setActors] = useState(null);
+
 
     useEffect(() => {
         (async () => {
