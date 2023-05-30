@@ -13,10 +13,6 @@ const Movies = () => {
     const [searchParams, setSearchParams] = useSearchParams('')
     const filter = searchParams.get('filter') ?? ''
 
-    // console.log('location: ', location)
-    
-
-
     const handleChange = ({target:{value}}) => {
         setSearchParams({filter: value})
     }
@@ -36,7 +32,6 @@ const Movies = () => {
         }
     }
     
-
     return (
         <div>
             <header >
@@ -58,7 +53,9 @@ const Movies = () => {
                 {values && values.map(movie => {
                     return (
                         <li className={css.homeList} key={movie.id}>
-                            <Link className={css.homeLink} to={`/movies/${movie.id}`} state={location}>{movie.title}</Link>
+                            <Link className={css.homeLink}
+                                to={`/movies/${movie.id}`}
+                                state={location}>{movie.title}</Link>
                         </li>
                     )
                 })}

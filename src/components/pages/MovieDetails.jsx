@@ -1,20 +1,22 @@
 import React, { useEffect, useState } from "react";
 import {searchMovieInfo } from '../API/APIMovieList'
-import { Link, Outlet, useLocation, useParams } from "react-router-dom";
+import { Link, Outlet, useLocation, useNavigate, useParams } from "react-router-dom";
 import css from "./Page.module.css"
 import PropTypes from "prop-types";
 import { Suspense } from "react";
+
 
 const MovieDetails = () => {
 
     const { movieId } = useParams();
     const [movie, setMovie] = useState(null);
-    const location = useLocation()
-    const back = location.state ?? '/'
+    const locationDetails = useLocation()
+    const back = locationDetails.state ?? '/'
+    const navigate = useNavigate()
 
-    // console.log('location.state: ', location.state)
-    // console.log('location.state.from: ', location.state.from)
-
+    const handleClick = () => {
+    navigate(back)
+    }
 
     useEffect(() => {
         (async () => {
@@ -29,7 +31,7 @@ const MovieDetails = () => {
 
     return (
         <div className={css.infoConteiner}>
-            <Link className={css.linkBack} to={back}>Go back</Link>
+            <button className={css.linkBack} onClick={handleClick}>Go back</button>
             {movie && (
                 <div className={css.commomDiv}>
                     <div className={css.infoDiv}>
@@ -52,11 +54,11 @@ const MovieDetails = () => {
                         <ul>
                             <li>
                                 <Link className={css.linkAddInfo} to={`/movies/${movie.id}/cast`}
-                                state={location}>Cast</Link>
+                                state={back}>Cast</Link>
                             </li>
                             <li>
                                 <Link className={css.linkAddInfo} to={`/movies/${movie.id}/reviews`} 
-                                state={location}>Reviews</Link>
+                                state={back}>Reviews</Link>
                             </li>
                         </ul>
                     </div>
