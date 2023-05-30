@@ -4,7 +4,7 @@ import { BsSearch } from "react-icons/bs";
 import "react-toastify/dist/ReactToastify.css";
 import css from './Page.module.css';
 import PropTypes from "prop-types";
-import { Link, useLocation, useSearchParams } from "react-router-dom";
+import { Link, Navigate, useLocation, useSearchParams } from "react-router-dom";
 
 
 const Movies = () => {
@@ -27,8 +27,9 @@ const Movies = () => {
             const { data } = await searchMovie(filter);
             setValues(data.results)
 
-        } catch (err) {
-            throw new Error(err.message)
+        } catch (error) {
+            console.log(error);
+            <Navigate to='404'/>;
         }
     }
     
@@ -61,7 +62,7 @@ const Movies = () => {
                 })}
             </ul>
         </div>
-    );                    
+    )               
 }
 
 

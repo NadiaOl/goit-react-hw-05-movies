@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import {searchMovieInfo } from '../API/APIMovieList'
-import { Link, Outlet, useLocation, useNavigate, useParams } from "react-router-dom";
+import { Link, Navigate, Outlet, useLocation, useNavigate, useParams } from "react-router-dom";
 import css from "./Page.module.css"
 import PropTypes from "prop-types";
 import { Suspense } from "react";
@@ -25,6 +25,7 @@ const MovieDetails = () => {
             setMovie(data);
         } catch (error) {
             console.log(error);
+            <Navigate to='404'/>;
         }
         })();
     }, [movieId]);

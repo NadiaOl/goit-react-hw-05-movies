@@ -2,7 +2,7 @@ import { getMovieList } from "components/API/APIMovieList";
 import React, { useEffect, useState } from "react";
 import css from './Page.module.css'
 import PropTypes from "prop-types";
-import { Link, useLocation } from "react-router-dom";
+import { Link, Navigate, useLocation } from "react-router-dom";
 
 
 const Home = () => {
@@ -14,13 +14,15 @@ const Home = () => {
             try {
                 const { data } = await getMovieList();
                 setData(data.results)
-            } catch (err) {
-                throw new Error(err.message)
+            } catch (error) {
+                console.log(error);
+                <Navigate to='404'/>;
             }
         })();
     }, []);
 
-    return (
+
+    return (    
         <>
             <div className={css.homeConteiner}>
                 <h4 className={css.homeTitle}>Traiding today</h4>

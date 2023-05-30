@@ -1,6 +1,6 @@
 import { searchMovieReview } from "components/API/APIMovieList";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Navigate, useParams } from "react-router-dom";
 import css from "./Page.module.css"
 import PropTypes from "prop-types";
 
@@ -16,6 +16,7 @@ const Reviews = () => {
             
         } catch (error) {
             console.log(error);
+            <Navigate to='404'/>;
         }
         })();
     }, [movieId]);

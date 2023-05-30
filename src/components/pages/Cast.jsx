@@ -1,6 +1,6 @@
 import { searchMovieActor } from "components/API/APIMovieList";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Navigate, useParams } from "react-router-dom";
 import css from "./Page.module.css";
 import PropTypes from "prop-types";
 
@@ -17,11 +17,12 @@ const Cast = () => {
             setActors(data.cast);
         } catch (error) {
             console.log(error);
+            <Navigate to='404'/>;
         }
         })();
     }, [movieId]);
 
-    return (
+    return  (
         <ul className={css.actorsList}>
             {actors && actors.map(actor => { 
                 return (
@@ -37,7 +38,7 @@ const Cast = () => {
                 )
             })}
         </ul>
-    )
+    ) 
 }
 
 
