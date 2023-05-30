@@ -1,0 +1,1 @@
+{"version":3,"file":"static/js/352.ef77c877.chunk.js","mappings":"iKAMA,UAJc,WACV,OAAQ,qCACX,C","sources":["components/pages/ErrorPage.jsx"],"sourcesContent":["import React from \"react\"\n\nconst Error = () =>{\n    return (<h1>404 error</h1>)\n}\n\nexport default Error"],"names":[],"sourceRoot":""}
