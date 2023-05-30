@@ -16,7 +16,7 @@ const Home = () => {
                 setData(data.results)
             } catch (error) {
                 console.log(error);
-                <Navigate to='404'/>;
+                <Navigate to='/404'/>;
             }
         })();
     }, []);

@@ -25,7 +25,7 @@ const MovieDetails = () => {
             setMovie(data);
         } catch (error) {
             console.log(error);
-            <Navigate to='404'/>;
+            <Navigate to='/404'/>;
         }
         })();
     }, [movieId]);
