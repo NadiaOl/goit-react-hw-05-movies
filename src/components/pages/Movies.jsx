@@ -1,5 +1,5 @@
 import { searchMovie } from "components/API/APIMovieList";
-import React, { useState} from "react";
+import React, { useEffect, useState} from "react";
 import { BsSearch } from "react-icons/bs";
 import "react-toastify/dist/ReactToastify.css";
 import css from './Page.module.css';
@@ -23,15 +23,24 @@ const Movies = () => {
             alert("Enter a search term, please!");
             return
         }
+        
+    }
+    useEffect(() => {
+        if (!filter) {
+            return
+        }
         try {
-            const { data } = await searchMovie(filter);
-            setValues(data.results)
+            const fetchData = async () => {
+                const { data } = await searchMovie(filter);
+                setValues(data.results)
+            }
+            fetchData()
 
         } catch (error) {
             console.log(error);
             <Navigate to='/404'/>;
         }
-    }
+    }, [filter])
     
     return (
         <div>
